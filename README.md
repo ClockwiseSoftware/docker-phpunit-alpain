@@ -1,3 +1,5 @@
+![](https://images.microbadger.com/badges/image/clockwise/docker-phpunit-alpain.svg)
+
 Container for using with Bitbucket Pipeline for testing Laravel project with PHPUnit
 
 Using 
