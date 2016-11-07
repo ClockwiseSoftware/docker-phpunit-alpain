@@ -1,4 +1,4 @@
-FROM php:alpine
+FROM php:fpm-alpine
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
