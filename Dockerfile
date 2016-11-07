@@ -27,4 +27,5 @@ RUN apk add --no-cache \
     && pecl install imagick \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j1 gd \
-    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick
+    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick \
+    && rm -rf /tmp/* /var/cache/apk/*
