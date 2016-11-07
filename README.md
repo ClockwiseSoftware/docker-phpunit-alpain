@@ -14,7 +14,7 @@ and extending PHP with modules:
 
 Example of `bitbucket-pipelines.yml`:
 ```yml
-image: clockwise/docker-phpunit-alpain
+image: clockwise/docker-phpunit-alpain:master
 
 pipelines:
   default:
