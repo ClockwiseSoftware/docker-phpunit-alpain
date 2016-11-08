@@ -13,11 +13,19 @@ RUN apk add --no-cache git unzip
 RUN apk add --no-cache \
         freetype-dev \
         libjpeg-turbo-dev \
+        libxml2-dev \
+        autoconf \
+        g++ \
+        imagemagick-dev \
+        libtool \
+        make \
         libmcrypt-dev \
         libpng-dev \
         sqlite-dev \
         curl-dev \
-    && docker-php-ext-install -j9 iconv mcrypt pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring \
+    && docker-php-ext-install -j11 iconv mcrypt pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli opcache soap\
+    && pecl install imagick \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j1 gd \
-    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring
+    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap\
+    && rm -rf /tmp/* /var/cache/apk/*

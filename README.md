@@ -1,16 +1,28 @@
 ![](https://images.microbadger.com/badges/image/clockwise/docker-phpunit-alpain.svg)
 
-Container for using with Bitbucket Pipeline for testing Laravel project with PHPUnit
+PHP7 container with extensions 
+`iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap`
 
-Using 
 
-`php:alpine`
-( php7 )
+Can use master brunch in 
+Bitbucket Pipeline for testing Laravel project with PHPUnit
+Using oficcial php-alpine containers
 
-Include composer
-and extending PHP with modules:
+Available tags:
+```
+master
+fpm
+```
 
-`iconv mcrypt pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring gd`
+Include composer, git, unzip and imagemagick
+
+Container for using php-fpm with nginx
+
+```yml
+FROM clockwise/docker-phpunit-alpain:fpm
+
+WORKDIR /var/www
+```
 
 Example of `bitbucket-pipelines.yml`:
 ```yml
@@ -30,14 +42,3 @@ pipelines:
           # run tests
           - vendor/bin/phpunit
 ```
-
-Container for using php-fpm with nginx
-
-Just use it like:
-
-```yml
-FROM clockwise/docker-phpunit-alpain:fpm
-
-WORKDIR /var/www
-```
-
