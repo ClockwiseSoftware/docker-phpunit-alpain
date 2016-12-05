@@ -8,9 +8,9 @@ RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php')
 RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer && \
     rm -rf /tmp/composer-setup.php
 
-RUN wget https://phar.phpunit.de/phpunit.phar
-RUN chmod +x phpunit.phar
-RUN sudo mv phpunit.phar /usr/local/bin/phpunit
+RUN php -r "copy('https://phar.phpunit.de/phpunit.phar','/tmp/phpunit.phar');"
+RUN chmod +x /tmp/phpunit.phar
+RUN mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
 RUN apk add --no-cache git unzip
 
