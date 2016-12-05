@@ -12,6 +12,7 @@ Available tags:
 ```
 master
 fpm
+5.6-fpm
 ```
 
 Include composer, git, unzip and imagemagick
