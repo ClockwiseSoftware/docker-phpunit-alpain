@@ -1,6 +1,6 @@
 [![](https://images.microbadger.com/badges/image/clockwise/docker-phpunit-alpain.svg)](https://microbadger.com/images/clockwise/docker-phpunit-alpain "Get your own image badge on microbadger.com")
 
-PHP7 container with extensions 
+PHP5.6 container with extensions 
 `iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap`
 
 
@@ -12,6 +12,7 @@ Available tags:
 ```
 master
 fpm
+5.6-fpm
 ```
 
 Include composer, git, unzip and imagemagick
