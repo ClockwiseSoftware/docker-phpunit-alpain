@@ -33,3 +33,7 @@ RUN apk add --no-cache \
     && docker-php-ext-install -j1 gd \
     && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap\
     && rm -rf /tmp/* /var/cache/apk/*
+
+EXPOSE 9000
+
+CMD ["php-fpm"]
