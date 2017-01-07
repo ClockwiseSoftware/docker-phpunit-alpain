@@ -12,7 +12,8 @@ RUN php -r "copy('https://phar.phpunit.de/phpunit.phar','/tmp/phpunit.phar');"
 RUN chmod +x /tmp/phpunit.phar
 RUN mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
-RUN apk add --no-cache git unzip 
+RUN apk add --no-cache git unzip  \
+    && rm -rf /tmp/* /var/cache/apk/*
 
 RUN apk add --no-cache \
         freetype-dev \
