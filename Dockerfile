@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-alpine
+FROM php:7.0-fpm
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
@@ -12,28 +12,24 @@ RUN php -r "copy('https://phar.phpunit.de/phpunit.phar','/tmp/phpunit.phar');"
 RUN chmod +x /tmp/phpunit.phar
 RUN mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
-RUN apk add --no-cache git unzip  \
-    && rm -rf /tmp/* /var/cache/apk/*
+RUN apt-get update && \
+    apt-get install -y git unzip 
 
-RUN apk add --no-cache \
-        freetype-dev \
-        libjpeg-turbo-dev \
-        libxml2-dev \
-        autoconf \
-        g++ \
-        imagemagick-dev \
-        libtool \
-        make \
+RUN apt-get update && \
+    apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng-dev \
-        sqlite-dev \
-        curl-dev \
-    && docker-php-ext-install -j11 iconv mcrypt pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli opcache soap\
+        libpng12-dev \
+        libsqlite3-dev \
+        libcurl4-gnutls-dev \
+        libmagickwand-dev --no-install-recommends \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache mbstring soap\
     && pecl install imagick \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j1 gd \
-    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap\
-    && rm -rf /tmp/* /var/cache/apk/*
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache mbstring imagick soap\
+    && apt-get autoremove -y
 
 EXPOSE 9000
 
