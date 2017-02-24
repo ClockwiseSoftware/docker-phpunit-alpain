@@ -2,8 +2,6 @@ FROM php:7.0-fpm
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
-RUN apk add --update bash && rm -rf /var/cache/apk/*
-
 RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
 RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer && \
     rm -rf /tmp/composer-setup.php
