@@ -29,6 +29,9 @@ RUN apt-get update && \
     && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache mbstring imagick soap\
     && apt-get autoremove -y
 
+RUN docker-php-ext-install exif \
+    && docker-php-ext-enable exif
+
 EXPOSE 9000
 
 CMD ["php-fpm"]
