@@ -33,3 +33,6 @@ RUN apk add --no-cache \
     && docker-php-ext-install -j1 gd \
     && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap\
     && rm -rf /tmp/* /var/cache/apk/*
+
+RUN docker-php-ext-install exif \
+    && docker-php-ext-enable exif
