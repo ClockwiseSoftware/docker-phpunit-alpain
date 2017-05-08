@@ -1,7 +1,7 @@
 [![](https://images.microbadger.com/badges/image/clockwise/docker-phpunit-alpain.svg)](https://microbadger.com/images/clockwise/docker-phpunit-alpain "Get your own image badge on microbadger.com")
 
 PHP7 container with extensions 
-`iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap`
+`iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap mysqli mongodb`
 
 
 Can use master brunch in 

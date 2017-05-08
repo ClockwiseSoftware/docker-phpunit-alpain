@@ -39,6 +39,3 @@ RUN docker-php-ext-install exif \
 
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
-
-RUN docker-php-ext-install exif \
-    && docker-php-ext-enable exif
