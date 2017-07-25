@@ -12,7 +12,7 @@ RUN php -r "copy('https://phar.phpunit.de/phpunit.phar','/tmp/phpunit.phar');"
 RUN chmod +x /tmp/phpunit.phar
 RUN mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
-RUN apk add --no-cache git unzip
+RUN apk add --no-cache git unzip openssh
 
 RUN apk add --no-cache \
         freetype-dev \
