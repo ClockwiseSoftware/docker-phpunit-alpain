@@ -1,4 +1,4 @@
-FROM php:alpine
+FROM php:7-alpine
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
@@ -20,7 +20,7 @@ RUN apk add --no-cache \
         libxml2-dev \
         autoconf \
         g++ \
-        imagemagick-dev \
+        gcc \
         libtool \
         make \
         libmcrypt-dev \
@@ -28,14 +28,19 @@ RUN apk add --no-cache \
         sqlite-dev \
         curl-dev \
     && docker-php-ext-install -j11 iconv mcrypt pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli opcache soap\
-    && pecl install imagick \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j1 gd \
-    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli imagick soap\
+    && docker-php-ext-enable iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli soap\
     && rm -rf /tmp/* /var/cache/apk/*
+
+RUN set -ex \
+    && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS imagemagick-dev libtool \
+    && export CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS" \
+    && pecl install imagick mongodb \
+    && docker-php-ext-enable imagick mongodb \
+    && apk add --no-cache --virtual .imagick-runtime-deps imagemagick \
+    && apk del .phpize-deps
+
 
 RUN docker-php-ext-install exif \
     && docker-php-ext-enable exif
-
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb
