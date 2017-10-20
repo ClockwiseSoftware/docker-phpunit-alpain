@@ -14,12 +14,25 @@ Alpine Linux:
 # Desription
 
 PHP container with extensions 
-`iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap mysqli mongodb`
+- iconv 
+- mcrypt 
+- gd
+- pdo_mysql
+- pcntl 
+- pdo_sqlite 
+- zip 
+- curl 
+- bcmath 
+- mbstring 
+- imagick 
+- soap 
+- mysqli
+- mongodb
 
-Can use master brunch in 
+Can use master branch in 
 Bitbucket Pipeline for testing Laravel project with PHPUnit
-Using oficcial php-alpine containers
 
+Using oficcial php containers
 
 Include composer, git, unzip and imagemagick
 
