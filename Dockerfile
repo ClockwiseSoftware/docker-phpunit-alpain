@@ -28,6 +28,7 @@ RUN apk add --no-cache \
         libpng-dev \
         sqlite-dev \
         curl-dev \
+        pcre-dev \
     && docker-php-ext-install -j11 iconv mcrypt pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli opcache soap\
     && pecl install imagick \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
