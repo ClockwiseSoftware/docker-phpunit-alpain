@@ -10,6 +10,7 @@ Debian:
 Alpine Linux:
 [7.0-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.0-fpm-alpine),
 [7.1-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.1-fpm-alpine)
+[7.2-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.2-fpm-alpine)
 
 # Desсription
 
