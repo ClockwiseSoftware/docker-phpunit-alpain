@@ -2,7 +2,7 @@ FROM php:7.1-fpm
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
-RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+# RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
 RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
@@ -21,7 +21,7 @@ RUN apt-get update && \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         libsqlite3-dev \
         libcurl4-gnutls-dev \
         libmagickwand-dev --no-install-recommends \
