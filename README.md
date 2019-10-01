@@ -65,5 +65,5 @@ pipelines:
           # migrate
           - php artisan migrate --seed
           # run tests
-          - vendor/bin/phpunit
+          - vendor/bin/phpunit --log-junit ./test-reports/phpunit-junit.xml
 ```
