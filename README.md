@@ -8,18 +8,19 @@ Debian:
 [7.1-fpm-deb](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.1-fpm-deb)
 [7.2-fpm-deb](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.2-fpm-deb)
 [7.3-fpm-deb](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.3-fpm-deb)
+[7.4-fpm-deb](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.4-fpm-deb)
 
 Alpine Linux:
 [7.0-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.0-fpm-alpine),
 [7.1-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.1-fpm-alpine)
 [7.2-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.2-fpm-alpine)
 [7.3-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.3-fpm-alpine)
+[7.4-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.4-fpm-alpine)
 
 # Desсription
 
 PHP container with extensions 
 - iconv 
-- mcrypt 
 - gd
 - pdo_mysql
 - pcntl 
@@ -27,7 +28,6 @@ PHP container with extensions
 - zip 
 - curl 
 - bcmath 
-- mbstring 
 - imagick 
 - soap 
 - mysqli
@@ -65,5 +65,5 @@ pipelines:
           # migrate
           - php artisan migrate --seed
           # run tests
-          - vendor/bin/phpunit --log-junit ./test-reports/phpunit-junit.xml
+          - vendor/bin/phpunit
 ```
