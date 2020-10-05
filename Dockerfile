@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
@@ -25,21 +25,12 @@ RUN apt-get update && \
         libcurl4-gnutls-dev \
         libzip-dev \
         libmagickwand-dev --no-install-recommends \
-    && docker-php-ext-install -j$(nproc) iconv gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache mbstring soap mysqli xml\
+    && docker-php-ext-install -j$(nproc) iconv gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache soap mysqli xml\
     && pecl install imagick \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-enable iconv gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache mbstring imagick soap mysqli xml \
+    && docker-php-ext-enable iconv gd pdo_mysql pcntl pdo_sqlite zip curl bcmath opcache imagick soap mysqli xml \
     && apt-get autoremove -y
-
-RUN apt-get update && \
-    apt-get install -y \
-    gcc make autoconf libc-dev pkg-config libmcrypt-dev \
-    && pecl install mcrypt-1.0.2
-
-RUN bash -c "echo extension=mcrypt.so > /usr/local/etc/php/conf.d/mcrypt.ini"
-
-RUN php -i | grep "mcrypt" 
 
 RUN docker-php-ext-install exif \
     && docker-php-ext-enable exif
