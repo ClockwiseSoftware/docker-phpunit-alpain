@@ -1,21 +1,42 @@
 [![](https://images.microbadger.com/badges/image/clockwise/docker-phpunit-alpain.svg)](https://microbadger.com/images/clockwise/docker-phpunit-alpain "Get your own image badge on microbadger.com")
-PHP7 container with extensions 
-`iconv mcrypt gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring imagick soap`
 
+# Available tags
 
-Can use master brunch in 
+Debian:
+[5.6-fpm](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/5.6-fpm),
+[7.0-fpm-deb](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.0-fpm-deb),
+[7.1-fpm-deb](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.1-fpm-deb)
+
+Alpine Linux:
+[7.0-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.0-fpm-alpine),
+[7.1-fpm-alpine](https://github.com/ClockwiseSoftware/docker-phpunit-alpain/tree/7.1-fpm-alpine)
+
+# Desсription
+
+PHP container with extensions 
+- iconv 
+- mcrypt 
+- gd
+- pdo_mysql
+- pcntl 
+- pdo_sqlite 
+- zip 
+- curl 
+- bcmath 
+- mbstring 
+- imagick 
+- soap 
+- mysqli
+- mongodb
+
+Can use master branch in 
 Bitbucket Pipeline for testing Laravel project with PHPUnit
-Using oficcial php-alpine containers
 
-Available tags:
-```
-master
-fpm
-5.6-fpm
-```
+Using oficcial php containers
 
 Include composer, git, unzip and imagemagick
 
+# Example 
 Container for using php-fpm with nginx
 
 ```yml
