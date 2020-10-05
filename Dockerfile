@@ -29,17 +29,13 @@ RUN apk add --no-cache \
         curl-dev \
         pcre-dev \
         libzip-dev \
-    && docker-php-ext-install -j11 iconv pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli opcache soap\
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j11 iconv pdo_mysql pcntl pdo_sqlite zip curl bcmath mysqli opcache soap\
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg \
     && docker-php-ext-install -j1 gd \
-    && docker-php-ext-enable iconv gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mbstring mysqli  soap\
+    && docker-php-ext-enable iconv gd pdo_mysql pcntl pdo_sqlite zip curl bcmath mysqli  soap\
     && rm -rf /tmp/* /var/cache/apk/*
 
 RUN pecl install imagick && docker-php-ext-enable imagick
-
-RUN apk add --no-cache \
-    libmcrypt-dev \
-    && pecl install mcrypt-1.0.2
 
 RUN docker-php-ext-install exif \
     && docker-php-ext-enable exif
