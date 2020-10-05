@@ -15,6 +15,7 @@ RUN mv /tmp/phpunit.phar /usr/local/bin/phpunit
 RUN apk add --no-cache git unzip  \
     && rm -rf /tmp/* /var/cache/apk/*
 
+
 RUN apk add --no-cache \
         freetype-dev \
         libjpeg-turbo-dev \
